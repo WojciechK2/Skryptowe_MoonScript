@@ -1,9 +1,9 @@
 ## Docker
 
 ### Docker image
-Based on Docker file from https://github.com/miko083/PracowniaJezykowSkryptowychLua
-Based on [openresty/openresty](https://hub.docker.com/r/openresty/openresty).
-My image has:
+Based on Docker file from https://github.com/miko083/PracowniaJezykowSkryptowychLua   
+Based on [openresty/openresty](https://hub.docker.com/r/openresty/openresty).   
+My image has:   
 * Lua 5.4 with Lapis and Moonscript
 * PostgreSQL
 
