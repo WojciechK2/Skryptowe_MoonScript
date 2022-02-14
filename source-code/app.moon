@@ -11,10 +11,10 @@ class extends lapis.Application
   [products: "/products"]: respond_to {
 
     GET: =>
-      result = Products\select ""
+      res = Products\select ""
       {
         json: {
-          result
+          res
         }
       }
 
@@ -34,10 +34,10 @@ class extends lapis.Application
   [unsellables: "/unsellables"]: respond_to {
 
     GET: =>
-      result = Unsellables\select ""
+      res = Unsellables\select ""
       {
         json: {
-          result
+          res
         }
       }
 
@@ -57,10 +57,10 @@ class extends lapis.Application
   [categories: "/categories"]: respond_to {
 
     GET: =>
-      result = Categories\select ""
+      res = Categories\select ""
       {
         json: {
-          result
+          res
         }
       }
 
@@ -79,10 +79,10 @@ class extends lapis.Application
   [products: "/products/:id"]: respond_to {    
 
     GET: =>
-      result = Products\find @params.id
+      res = Products\find @params.id
       {
           json: {
-            result
+            res
           }
       }
 
@@ -124,10 +124,10 @@ class extends lapis.Application
     [unsellables_item: "/unsellables/:id"]: respond_to {    
 
     GET: =>
-      result = Unsellabless\find @params.id
+      res = Unsellabless\find @params.id
       {
           json: {
-            result
+            res
           }
       }
 
