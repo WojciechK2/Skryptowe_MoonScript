@@ -1,36 +1,33 @@
 ## Docker
 
 ### Docker image
-Based on [openresty/openresty](https://hub.docker.com/r/openresty/openresty).   
-Consists of:
+Opiera się o: [openresty/openresty](https://hub.docker.com/r/openresty/openresty).   
+Zawiera:
 
 - Lua 5.4 with Lapis and Moonscript
 - PostgreSQL
 
-Please build with following command:
+Wybrałem Moonscript, bo ustawienie środowiska wydawało się łatwiejsze do zrealizowania.   
+(Co pewnie było błędem)
+
+build:
 `docker build -t <nazwa> .`
 
-### Start docker container
+### Start kontenera
 
-Please run following command:
 `docker run -dti -v "$(pwd)/source-code:/var/source-code" -p 8080:8080 <nazwa>`
 
-The app will be avaiable on the 8080 port.
+## Funkcjonalność
 
-## Functionality
-
-### Get all categories
+### Pobranie informacji o tablicy categories (GET)
 
 `curl -s -X GET -H "Content-Type: application/json" http://localhost:8080/categories`   
 
-Manipulating the categories tables wasn't sucessful.
-Got lost in the creation of new tables (to be fixed in further commits)
+Utworzenie mechanizmu do rutowania {categories}/prodct się niepowiodło.  
+Zostanie to naprawione w następnych commitach, jednak już po czasie oddawania projektów.   
+Generalnie trzeba przypomnieć sobie informacje o kompozycjach baz danych i zrozumieć dokładniej mechanizmy moonscript.    
 
-### Get all products
-
-`curl -s -X GET -H "Content-Type: application/json" http://localhost:8080/products`
-
-### List items in each category
+### Pobranie informacji z tablic (products,unsellables)
 
 products
 
@@ -40,26 +37,26 @@ unsellables
 
 `curl -s -X GET -H "Content-Type: application/json" http://localhost:8080/unsellables`
 
-### Get specific product (by product id)
+### Informacje o jednym produkcie (product/id)
 
 `curl -s -X GET -H "Content-Type: application/json" http://localhost:8080/products/3`
 
-Analogic for unsellables, only path is /unsellables/:id
+Dla Unsellables path = /unsellables/:id
 
-### Add new product
+### Dodanie produktu
 
 `curl -s -X POST -H "Content-Type: application/json" -d '{"name":"Podkoszulek","price":45}' http://localhost:8080/products`
 
-Analogic for unsellables, only path is /unsellables/:id
+Dla Unsellables path = /unsellables/:id
 
-### Update a product
+### Update
 
 `curl -s -X PUT -H "Content-Type: application/json" -d '{"price":25}' http://localhost:8080/products/2`
 
-Analogic for unsellables, only path is /unsellables/:id
+Dla Unsellables path = /unsellables/:id
 
-### Delete a product
+### Delete
 
 `curl -s -X DELETE -H "Content-Type: application/json" http://localhost:8080/products/2`
 
-Analogic for unsellables, only path is /unsellables/:id
+Dla Unsellables, path = /unsellables/:id
