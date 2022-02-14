@@ -8,7 +8,8 @@ Zawiera:
 - PostgreSQL
 
 Wybrałem Moonscript, bo ustawienie środowiska wydawało się łatwiejsze do zrealizowania.   
-(Co pewnie było błędem)
+(Co pewnie było błędem)   
+Przyznam się szczerze, Lua mnie pokonała, Moonscript też  
 
 build:
 `docker build -t <nazwa> .`
